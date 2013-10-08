@@ -2,7 +2,7 @@ function mergesort(array) {
 	var length = array.length;
 	var middle = length / 2;
 
-	if (length == 1)
+	if (length <= 1)
 		return array;
 
 	return mergesortMerge(mergesort(array.slice(0, middle)), mergesort(array.slice(middle, length)));

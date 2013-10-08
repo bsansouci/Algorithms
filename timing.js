@@ -1,36 +1,45 @@
-(function () {
-	var numberOfTests = 10;
-	var file = [];
-	var averageTimeMergesort = 0;
-	var averageTimeQuicksort = 0;
+function Timer() {
+	var timer = {};
 
-	while (numberOfTests--) {
-		var array = getRandomArray();
-		var cur = [];
-		var start = (new Date()).getTime();
-		mergesort(array);
-		var end = (new Date()).getTime();
-		var time = (end - start);
-		cur.push("Mergesort: " + time + "ms");
-		averageTimeMergesort += time;
+	timer.time = function (f, dataGenerator, numberOfTimes) {
+		var allData = [];
+		if (!numberOfTimes)
+			numberOfTimes = 1;
 
-		start = (new Date()).getTime();
-		quicksort(array);
-		end = (new Date()).getTime();
-		var time = (end - start);
-		cur.push("Mergesort: " + time + "ms");
-		averageTimeQuicksort += time;
-		file.push(cur);
+		while (numberOfTimes--) {
+			var start = (new Date()).getTime();
+			f(dataGenerator())
+			var end = (new Date()).getTime();
+			allData.push(end - start);
+		}
+		
+		return allData;
+	}
+	
+	timer.compareTime = function (f1, f2, dataGenerator, numberOfTimes) {
+		var data1 = [];
+		var data2 = []
+		if (!numberOfTimes)
+			numberOfTimes = 1;
+		
+		while (numberOfTimes--) {
+			var dataGen1 = dataGenerator();
+			var dataGen2 = dataGen1.slice();
+			data1.push(timer.time(f1, function () { return dataGen1; })[0]);
+			data2.push(timer.time(f2, function () { return dataGen2; })[0]);
+		}
+
+		return [data1, data2];
 	}
 
-	console.log("Quicksort: " + averageTimeQuicksort / 10 + "ms, Mergesort: " + averageTimeMergesort / 10 + "ms");
-})();
+	timer.averageOutArray = function (array) {
+		var cumul = 0;
+		var length = array.length;
+		for (i = 0; i < length; i++) {
+			cumul += array[i];
+		}
 
-function getRandomArray() {
-	var array = [];
-	var length = 100000;
-	for (var i = 0; i < length; i++) {
-		array[i] = Math.random() * length;
+		return (cumul / length);
 	}
-	return array;
+	return timer;
 }
