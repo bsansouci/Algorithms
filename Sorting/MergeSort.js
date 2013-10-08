@@ -1,13 +1,14 @@
-var array = [4, 8, 3, 2, 1, 6, 1, 2, 5];
-(function (array) {
-	function sort(cur) {
-		var length = cur.length;
+(function () {
+	var array = [4, 8, 3, 2, 1, 6, 1, 2, 5];
+
+	function mergesort(array) {
+		var length = array.length;
 		var middle = length / 2;
 
 		if (length == 1)
-			return cur;
+			return array;
 
-		return merge(sort(cur.slice(0, middle)), sort(cur.slice(middle, length)));
+		return merge(mergesort(array.slice(0, middle)), mergesort(array.slice(middle, length)));
 	}
 
 	function merge(left, right) {
@@ -27,5 +28,5 @@ var array = [4, 8, 3, 2, 1, 6, 1, 2, 5];
 		return result;
 	}
 
-	console.log(sort(array));
-})(array);
+	console.log("Mergesort: array -> " + array + ", result -> " + mergesort(array));
+})();
