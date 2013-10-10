@@ -4,8 +4,8 @@ $(document).ready(function () {
 	loadScript(["lib/timing.js", "Sorting/MergeSort.js", "Sorting/QuickSort.js"], function () {
 		// Timer can time your algorithms, see which one is more efficient
 		var timer = Timer();
-		var allData = timer.compareTime([quicksort, mergesort], getRandomArray, 10);
-		console.log("50 tries of -> Mergesort data: " + timer.averageOutArray(allData[1]) + "ms, Quicksort data: " + timer.averageOutArray(allData[0]) + "ms");
+		var allData = timer.compareTime([quicksort, mergesort], getRandomArray, 50);
+		console.log("50 tries (with arrays of size 1000000) of -> Mergesort data: " + timer.averageOutArray(allData[1]) + "ms, Quicksort data: " + timer.averageOutArray(allData[0]) + "ms");
 	});
 });
 
