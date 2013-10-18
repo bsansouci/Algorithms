@@ -1,5 +1,5 @@
 function quicksort(array) {
-	var pivot = array[Math.round(Math.random() * (array.length - 1))];
+	var pivot = array[0];
 	var left = [], right = [];
 
 	if (array.length == 0) {
@@ -14,6 +14,6 @@ function quicksort(array) {
 			left.push(array[i]);
 		}
 	}
-	
+
 	return quicksort(left).concat([pivot].concat(quicksort(right)));
 }
