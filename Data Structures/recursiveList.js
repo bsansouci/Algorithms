@@ -1,3 +1,5 @@
+// This is an implementation of a stack (last in first out)
+
 function List(x) {
   var curList = x || {};
 
