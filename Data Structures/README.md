@@ -1,7 +1,7 @@
 #Data Structures
 
 ##Stack
----
+
 Simple implementation of an immutable stack using recursion.
 Example:
 ``` js
