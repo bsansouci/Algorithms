@@ -1,5 +1,5 @@
 // Definition of a Steam, it's just an array of 2 things
-// the first will be a current value, the next will be a function that retunrs
+// the first will be a current value, the rest will be a function that retunrs
 // a stream
 function Stream(a, b) {
   return [a, b];
@@ -17,7 +17,7 @@ function lock(f) {
 }
 
 // Those two functions are just to make the code cleaner
-function next(stream) {
+function rest(stream) {
   return stream[1]();
 }
 function cur(stream) {
@@ -31,7 +31,7 @@ function take(n, stream, cont) {
   if(n === 0) {
     return cont();
   }
-  return take(n - 1, next(stream), function(){
+  return take(n - 1, rest(stream), function(){
     var a = cont();
     a.push(cur(stream));
     return a;
@@ -57,20 +57,20 @@ function isPow2(a) {
 // Filter is just the same as filter on an array except it's on an infinite stream
 function filter(s, f) {
   if(f(s[0])) {
-    return Stream(cur(s), lock(filter, next(s), f));
+    return Stream(cur(s), lock(filter, rest(s), f));
   } else {
-    return filter(next(s), f);
+    return filter(rest(s), f);
   }
 }
 
 // Same as for arrays but fo streams
 function map(s, f) {
-  return Stream(f(cur(s)), lock(map, next(s), f));
+  return Stream(f(cur(s)), lock(map, rest(s), f));
 }
 
 // This is just a helper function to add two streams together
 function add(s1, s2) {
-  return Stream(cur(s1) + cur(s2), lock(add, next(s1), next(s2)));
+  return Stream(cur(s1) + cur(s2), lock(add, rest(s1), rest(s2)));
 }
 
 // This will go through the stream and will filter out the numbers that the
@@ -123,7 +123,7 @@ function fib_h(a, b) {
 // Just a function that will build a stream that removes every occurence of the
 // current number (aka building a primes stream)
 function sieve(s) {
-  return Stream(s[0], lock(sieve, remMultOf(s[0], next(s))));
+  return Stream(s[0], lock(sieve, remMultOf(s[0], rest(s))));
 }
 
 // Just a stream of 1's
@@ -151,3 +151,12 @@ var primes = sieve(add1(2));
 
 // This if how you get the values
 console.log(take(10, primes));
+
+
+// Another example with stream, the sum of the multiples of 3 or 5 up until 999
+console.log(take(999, naturals).reduce(function(acc, val, index) {
+  if(val % 3 === 0 || val % 5 === 0) {
+    return acc + val;
+  }
+  return acc;
+}, 0));
