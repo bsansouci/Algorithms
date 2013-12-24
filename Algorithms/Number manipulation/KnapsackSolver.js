@@ -1,5 +1,5 @@
-weights = [1, 2, 5, 6, 7];
-values = [1, 6, 18, 22, 28];
+var weights = [1, 2, 5, 6, 7];
+var values = [1, 6, 18, 22, 28];
 
 function knapsack(n, maxWeight) {
   var array = [];
@@ -19,7 +19,7 @@ function knapsack(n, maxWeight) {
       }
     }
     array.push(row);
-    console.log(array);
+    // console.log(array);
   }
   return array[n][maxWeight];
 }
