@@ -131,32 +131,5 @@ var ones_h = function() {
   return Stream(1, ones_h);
 }
 
-
-// Here are some example streams that you can create
-
 var ones = ones_h();
 
-var naturals  = add1(1);
-
-var even_stream = add2(0);
-
-var odd_stream = add2(1);
-
-var pows_2 = filter(naturals, isPow2);
-
-var fib = fib_h(1, 1);
-
-var primes = sieve(add1(2));
-
-
-// This if how you get the values
-console.log(take(10, primes));
-
-
-// Another example with stream, the sum of the multiples of 3 or 5 up until 999
-console.log(take(999, naturals).reduce(function(acc, val, index) {
-  if(val % 3 === 0 || val % 5 === 0) {
-    return acc + val;
-  }
-  return acc;
-}, 0));
