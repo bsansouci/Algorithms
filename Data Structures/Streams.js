@@ -56,7 +56,7 @@ function isPow2(a) {
 // The cool stuff starts here
 // Filter is just the same as filter on an array except it's on an infinite stream
 function filter(s, f) {
-  if(f(s[0])) {
+  if(f(cur(s))) {
     return Stream(cur(s), lock(filter, rest(s), f));
   } else {
     return filter(rest(s), f);
@@ -123,7 +123,7 @@ function fib_h(a, b) {
 // Just a function that will build a stream that removes every occurence of the
 // current number (aka building a primes stream)
 function sieve(s) {
-  return Stream(s[0], lock(sieve, remMultOf(s[0], rest(s))));
+  return Stream(cur(s), lock(sieve, remMultOf(cur(s), rest(s))));
 }
 
 // Just a stream of 1's
@@ -132,4 +132,6 @@ var ones_h = function() {
 }
 
 var ones = ones_h();
+var primes = sieve(add1(2));
 
+console.log(take(100, primes).filter(function(a){return a<= 100;}).length);
