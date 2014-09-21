@@ -1,0 +1,93 @@
+<html>
+<head>
+  <title>AI Assignment - Question 4 e)</title>
+  <style>
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
+  overflow: hidden;
+  font-size: 11px;
+}
+.node {
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+}
+
+.wordText {
+  position: absolute;
+}
+.possibilitiesText {
+  position: absolute;
+}
+.taskText {
+  position: absolute;
+  font-size: 15px;
+  text-align: left;
+}
+
+#graph {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+#text {
+  position: absolute;
+  top: 3%;
+  left: 75%;
+  border: 1px solid black;
+  text-align: justify;
+  padding: 10px;
+  width: 21.5%;
+  font-size: 14px;
+}
+#results {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+}
+
+#warning {
+  position: absolute;
+  top: 3%;
+  left: 10%;
+  background-color: red;
+  font-size: 15px;
+  color: white;
+  bottom: 1px solid black;
+  border-radius:5px;
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  vertical-align: center;
+}
+
+li {
+  display: inline-block;
+}
+ul {
+  display: inline-block;
+  padding-left: 0;
+}
+
+</style>
+</head>
+<body>
+<div id="graph">
+</div>
+<div id="text">
+</div>
+<div id="results">
+</div>
+<div id="warning">
+  Paused
+</div>
+</body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+ <script src="jquery-1.10.1.js"></script>
+<script type="text/javascript" src="crosswordBacktracking.js"></script>
+</html>
