@@ -37,20 +37,17 @@ observer.observe(document.getElementById("poke_live_new"), {
 /**
  * AUTOPOKER - Pokes people that FB suggests you should poke
  */
-var poke = document.getElementsByClassName("_4bl7 _4k2o")[0];
-var arr = poke.getElementsByClassName('mls');
+var poke = document.getElementsByClassName('_42ft _4jy0 _4jy3 _4jy1');
+// var arr = poke.getElementsByClassName('mls');
 var frames = [];
-if(arr.length > 0) {
-  for(var i=0; i < arr.length; i++) {
-    var a = arr[i].getElementsByTagName('a');
-    if(a.length > 0) {
-      frames.push(a[0]);
-    }
+if(poke.length > 0) {
+  for(var i=0; i < poke.length; i++) {
+    frames.push(poke[i]);
   }
 }
 bla();
 function bla() {
-  console.log(frames)
+  console.log(frames);
   if(frames.length > 0) {
     frames.pop().click();
     setTimeout(bla, 1000);
