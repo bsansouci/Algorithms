@@ -19,9 +19,9 @@ function compressString (str) {
     }
     previousCharacter = currentCharacter;
   }
-  compressedString += currentCharacter + currentCount
+  compressedString += currentCharacter + currentCount;
 
   return compressedString;
 }
 
-console.log(compressString("aabcccccaaa"))
+console.log(compressString("aabcccccaaa"));

@@ -1,3 +1,6 @@
+// This function will just tell you if val in the matrix
+// We assume the matrix is ordered, so we can search for the column first,
+// then the row. This increases the speed of the search by a lot
 function matrixSearch (matrix, val) {
   var column = 0;
   for (var i = matrix.length - 1; i > 0; i--) {
@@ -17,6 +20,6 @@ function matrixSearch (matrix, val) {
 var m = [[1, 2, 3],
          [5, 6, 7],
          [10, 40, 55],
-         [11, 56, 100]]
+         [11, 56, 100]];
 
 console.log(matrixSearch(m, 40));

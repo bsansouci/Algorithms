@@ -18,3 +18,6 @@ function validBraces(braces){
     return (a === "(" || a === ")" ? "round" : (a === "[" || a === "]" ? "square" : (a === "{" || a === "}" ? "curly" : "NOPE")));
   }
 }
+
+console.log(validBraces("([(()()()))])"));
+console.log(validBraces("([(()()())])"));

@@ -22,6 +22,7 @@
 
 	return array;
 }
+
 function inplacequicksort(array) {
 	if (array.length <= 1) {
 		return array;

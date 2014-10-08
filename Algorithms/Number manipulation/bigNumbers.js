@@ -1,10 +1,9 @@
 function add(a, b) {
-  console.log("a:" + a + ", b:" + b);
   var cOld = 0, cNew = 0;
   var result = [];
   aa = a.split("").reverse();
   bb = b.split("").reverse();
-  
+
   while(aa.length && bb.length) {
     var tmpA = parseInt(aa.shift()); // get first element (first digit => last element of string)
     var tmpB = parseInt(bb.shift());
@@ -17,7 +16,7 @@ function add(a, b) {
     result.push((sum + cOld) % 10);
     cOld = cNew;
   }
-  
+
   while(aa.length) {
     var tmpA = parseInt(aa.shift());
 
@@ -32,12 +31,11 @@ function add(a, b) {
     result.push((tmpB + cOld) % 10);
     cOld = cNew;
   }
-  
-  if(!aa.length && !bb.length && cOld != 0) {
+
+  if(!aa.length && !bb.length && cOld !== 0) {
     result.push(cOld);
   }
 
-  //console.log(result.reverse().join(''));
   return result.reverse().join("");
 
   function isBiggerThanTen(num) {
@@ -49,3 +47,4 @@ function add(a, b) {
   }
 }
 
+console.log(add("19999999999999999", "1000000000000000001"));

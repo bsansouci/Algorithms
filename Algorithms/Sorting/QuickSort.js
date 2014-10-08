@@ -2,7 +2,7 @@ function quicksort(array) {
 	var pivot = array[0];
 	var left = [], right = [];
 
-	if (array.length == 0) {
+	if (array.length === 0) {
 		return [];
 	}
 

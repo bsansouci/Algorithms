@@ -59,9 +59,7 @@ function permutations (str) {
     var possibilities = [];
 
     for (var i = 0; i < rest.length + 1; i++) {
-
       var p = rest.substring(0, i) + letter + rest.substring(i, rest.length);
-      // console.log(p)
       possibilities.push(p);
     }
 
@@ -72,7 +70,7 @@ function permutations (str) {
 }
 
 
-var a = permutations("aaaabca");
+var a = permutations("abc");
 console.log(a);
 
 // Checking for duplicates
@@ -83,7 +81,7 @@ for (var i = 0; i < a.length; i++) {
     }
     if(a[j] === a[i]) {
       console.log("i: " + i + " j: " + j);
-      console.log(a[i] + " " + a[j])
+      console.log(a[i] + " " + a[j]);
     }
   }
 }

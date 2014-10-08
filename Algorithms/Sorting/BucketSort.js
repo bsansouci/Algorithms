@@ -1,9 +1,10 @@
 function bucketsort (data, bucketSize, min, max) {
   var sortedData = [];
-  for (var i = min; i < max; i += bucketSize) {
+  var i;
+  for (i = min; i < max; i += bucketSize) {
     sortedData.push([]);
   }
-  for (var i = 0; i < data.length; i++) {
+  for (i = 0; i < data.length; i++) {
     sortedData[data[i].rank - min].push(data[i]);
   }
   return sortedData;

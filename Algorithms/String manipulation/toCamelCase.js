@@ -3,3 +3,5 @@ function toCamelCase(str) {
 		return m.toUpperCase().replace(/[\-_]/, '');
 	});
 }
+
+console.log(toCamelCase("this_is_a_variable_name_that_is_long"));

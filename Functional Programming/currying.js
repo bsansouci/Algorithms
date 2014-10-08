@@ -6,8 +6,10 @@ function curry (f) {
   };
 }
 
-var f = curry(function(x, y) {
+var add = function(x, y) {
   return x + y;
-}, 10);
+};
+
+var f = curry(add, 10);
 
 console.log(f(11));

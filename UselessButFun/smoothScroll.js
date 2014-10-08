@@ -1,4 +1,10 @@
-var DIV = document.getElementsByClassName("book-preview lazy-tithe_amodernfaerietale")[0];
+/*
+ * This makes scrolling with bad trackpads (ones that make your scrolling
+ * stepwise) much better.
+ */
+
+// change this DIV to be the thing in which you're scrolling
+var DIV = document.body;
 
 var SCROLL = [];
 var PREV = 0;

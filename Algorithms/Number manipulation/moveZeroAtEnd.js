@@ -1,3 +1,4 @@
+// Move zeros at the end
 var moveZeros = function (arr) {
   var r = arr.reduce(function(acc, val, i) {
     if(val !== 0)
@@ -8,9 +9,13 @@ var moveZeros = function (arr) {
   var z = arr.length - r.length;
   while(z--) { r.push(0); }
   return r;
-}
+};
 
-// Genius solution
+// Genius solution found on the internet
 var moveZeros2 = function (arr) {
-  return arr.filter(function(x) {return x !== 0}).concat(arr.filter(function(x) {return x === 0;}));
-}
+  return arr.filter(function(x) {
+    return x !== 0;
+  }).concat(arr.filter(function(x) {
+    return x === 0;
+  }));
+};
