@@ -1,2 +1,2 @@
-#JSTraining
-This is where I dump most of the code that I write for fun.
+# javascript-snippets
+Here is an aggregate of a lot of different algorithms, data structures or implementations of functional programming concepts.
