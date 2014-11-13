@@ -1,3 +1,6 @@
+"use strict";
+
+var allWins = [546, 896, 112, 14, 168, 584, 292, 146];
 /**
  * Q: Detect if a certain configuration of tic tac toe is a winning one
  *
@@ -10,8 +13,6 @@
  * @return {boolean} whether or not this configuratiokn is a winning
  * configuration
  */
-var allWins = [546, 896, 112, 14, 168, 584, 292, 146]
-
 function didIWin (array, player) {
   var num = 0;
   // Generate a number, with each bit represents whether or not the spot
@@ -22,12 +23,7 @@ function didIWin (array, player) {
       // If the current spot is taken by the player we add a 1 bit to *num*
       // because we're only interested in the player's configuration and
       // nothing else
-      if(array[i][j] === player) {
-        num = num | 1;
-      } else {
-        num = num | 0;
-      }
-
+      num |= +(array[i][j] === player);
       // We shift left the *num* so we can add the next bit
       num = num << 1;
     }
@@ -37,10 +33,8 @@ function didIWin (array, player) {
   // one by one with *num* and check if that gives back num or not
   // If it does, then we're in a winning configuration, if no then we're not
   for (var i = 0; i < allWins.length; i++) {
-    var x = allWins[i] | num;
-    if(x === num) {
-      return true;
-    }
+    var or = allWins[i] | num;
+    if(or === num) return true;
   }
   return false;
 }
