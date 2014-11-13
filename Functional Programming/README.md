@@ -3,7 +3,7 @@ _I wanted to implement these functions to better understand the reason behind th
 
 ## Currying
 Example:
-```
+``` js
 var add = function(x, y) {
   return x + y;
 };
@@ -52,7 +52,7 @@ async.parallel([
 ```
 
 But this is clunky and annoying as you have more and more functions. So you can use currying!
-```
+``` js
 async.parallel([
         curry(A, a, b),
         curry(B, a, b)], 
