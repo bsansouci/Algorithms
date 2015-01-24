@@ -1,5 +1,49 @@
 #Data Structures
 
+## Ordered HashMap
+This data structure is good for things like LRU caches.
+Example:
+``` js
+function getData(id) {
+  var map = {
+    1: "a",
+    2: "b",
+    3: "c",
+    4: "d",
+    5: "e",
+    6: "f",
+    7: "g",
+    8: "h",
+    9: "i",
+    10: "j",
+  };
+
+  // Fake slow retrieval
+  var i = 1000;
+  while(--i);
+
+  return map[id];
+}
+
+var h = new HashMap(3, getData);
+
+console.log("-->", h.get(1));
+console.log("-->", h.get(2));
+
+// Cache magic here
+console.log("-->", h.get(2));
+console.log("-->", h.get(2));
+
+console.log("-->", h.get(3));
+console.log("-->", h.get(4));
+console.log("-->", h.get(5));
+
+// Cache magic here
+console.log("-->", h.get(3));
+console.log("-->", h.get(3));
+console.log("-->", h.get(3));
+```
+
 ##Stack
 
 Simple implementation of an immutable stack using recursion.
