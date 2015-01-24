@@ -38,22 +38,20 @@ observer.observe(document.getElementById("poke_live_new"), {
  * AUTOPOKER - Pokes people that FB suggests you should poke
  */
 var poke = document.getElementsByClassName('_42ft _4jy0 _4jy3 _4jy1');
-// var arr = poke.getElementsByClassName('mls');
 var frames = [];
 if(poke.length > 0) {
   for(var i=0; i < poke.length; i++) {
     frames.push(poke[i]);
   }
 }
-bla();
+
 function bla() {
-  console.log(frames);
   if(frames.length > 0) {
     frames.pop().click();
-    setTimeout(bla, 1000);
+    setTimeout(bla, 300);
   }
 }
-
+bla();
 
 // AUTTOPOKE MORE ON PROFILE
 // document.getElementsByClassName("fbTimelineActionSelectorButton uiSelectorButton uiButton uiButtonOverlay uiButtonLarge uiButtonNoText")[0].click()
