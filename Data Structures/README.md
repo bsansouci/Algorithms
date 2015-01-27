@@ -1,5 +1,31 @@
 #Data Structures
 
+## Intrusive LinkedList
+This type of linkedList is especially useful in programming languages where manual memory management is present. The benefits include:
+- no run-time heap memory allocation for add/remove from linkedList
+- remove on delete (when the object gets deleted, it's removed from the list)
+- only one pointer indirection to get the object instead of two
+- constant time random remove from list
+
+```js
+function obj(i) {
+  this.data = i;
+}
+
+var iObj = toIntrusive(obj);
+var alliObj = new Array(10000);
+for (var i = 0; i < 10000; i++) {
+  alliObj[i] = new iObj(i);
+}
+
+var list = new iLinkedList();
+for (var i = 0; i < alliObj.length; i++) {
+  list.push(alliObj[i]);
+  // Constant time
+  list.remove(alliObj[i]);
+}
+```
+
 ## Ordered HashMap
 This data structure is good for things like LRU caches.
 Example:
